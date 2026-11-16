@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMK Clothing Dashboard</title>
+  <link rel="stylesheet" href="../Styling/StyleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #fcf9f2;">
+  <div class="dashboard-wrapper">
+   
+    <ul style="background-color: #1c2841; padding-top: 20px;">
+      <li class="sidebar" style="border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+        <div class="icon-box" style="background: linear-gradient(135deg, #1c2841 0%, #d96c06 100%); border-radius: 8px; padding: 10px;">
+          <h2 style="color: white; font-weight: 900; letter-spacing: 2px; margin: 0; font-size: 1.2rem;">AMK</h2>
+        </div>
+        <div class="AMK-text" style="margin-left: 10px;">
+          <span class="AMK-title" style="color: #fcd34d; font-weight: bold; font-size: 1.1rem;">ADMIN</span>
+          <span class="AMK-subtitle" style="color: #a8dadc; font-size: 0.8rem;">Fashion Design System</span>
+        </div>
+      </li>
+     
+      <li><a href="Homepage.html" style="color: #fcf9f2;">Dashboard</a></li>
+      
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Store Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="ManageProducts.html" style="color: #fcf9f2;">Manage Products</a>
+        </div>
+      </li>
+      
+      <li><a href="StaffManagement.html" style="color: #fcf9f2">Staff Management</a></li>
+      
+      <li><a href="CustomerManagement.html" style="color: #fcf9f2;">Customer Management</a></li>
+     
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Order Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="CreateOrder.html" style="color: #fcf9f2;">Create Order</a>
+          <a href="UpdateOrder.html" style="color: #fcf9f2;">Update Status</a>
+          <a href="RecordMeasurements.html" style="color: #fcf9f2;">Record Measurements</a>
+        </div>
+      </li>
+     
+      <li><a href="AdminMessages.html" style="color: #fcf9f2;">Client Chats</a></li>
+      
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Payment Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="ProcessPayment.html" style="color: #fcf9f2;">Process Payment</a>
+          <a href="Invoices.html" style="color: #fcf9f2;">Invoices</a>
+        </div>
+      </li>
+     
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Inventory Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="AddItems.html" style="color: #fcf9f2;">Add Item</a>
+          <a href="UpdateStock.html" style="color: #fcf9f2;">Update Stock</a>
+          <a href="LowStock.html" style="color: #fcf9f2;">Low Stock Alerts</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Reports</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="SalesReport.html" style="color: #fcf9f2;">Sales</a>
+          <a href="InventoryReport.html" style="color: #fcf9f2;">Inventory</a>
+          <a href="CustomerOrderReport.html" style="color: #fcf9f2;">Customer Orders</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="main-content">
+     
+      <header class="top-header" style="background-color: #ffffff; border-bottom: 1px solid #eaeaea;">
+        <div class="header-left">
+          <h2 style="color: #1c2841; font-weight: 800;">Customer Management</h2>
+          <p style="color: #777;">Wednesday, 13 May 2026</p>
+        </div>
+       
+        <div class="header-right">
+       <div class="profile-info">
+            <i class="far fa-user" style="font-size: 1.5rem; color: #d96c06;"></i>
+            <div class="profile-text">
+              <span class="profile-name" id="header-profile-name" style="color: #1c2841; font-weight: 700;">Fashion Designer</span>
+              <span class="profile-role" id="header-profile-role" style="color: #d96c06;">Administrator</span>
+            </div>
+          </div>
+          <button class="logout-btn" style="background-color: #fcd34d; color: #1c2841; font-weight: bold;">Logout</button>
+        </div>
+      </header>
+
+      <main class="dashboard-body">
+        <div class="page-header-text">
+          <h2 style="color: #1c2841;">Customer Database</h2>
+          <p id="customer-count" style="color: #d96c06; font-weight: bold;">0 registered customers</p>
+        </div>
+
+        <div class="table-container" style="background: white; border-top: 4px solid #1c2841;">
+          <div class="toolbar" style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <input type="text" class="search-bar" id="search-input" placeholder="Search customers by name or email..." style="flex: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px;">
+            <button class="btn-primary" id="add-customer-btn" style="background: #d96c06; border: none; border-radius: 8px; color: white; padding: 0 20px; font-weight: bold; cursor: pointer;">+ Add Customer</button>
+          </div>
+          
+          <table class="data-table">
+            <thead>
+              <tr style="border-bottom: 2px solid #eaeaea; color: #1c2841;">
+                <th>NAME</th>
+                <th>PHONE</th>
+                <th>EMAIL</th>
+                <th>ORDERS</th>
+                <th>JOINED</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="customer-table-body">
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div id="customer-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 style="color: #1c2841;">Add New Customer</h3>
+            <button id="close-modal-btn" class="close-btn" style="font-size: 1.8rem; border: none; background: none; cursor: pointer; color: #d96c06;">&times;</button>
+        </div>
+        
+        <form id="add-customer-form">
+            <div class="input-group" style="margin-bottom: 15px;">
+                <label style="color: #1c2841; font-weight: 700;">Full Name *</label>
+                <input type="text" id="cust-name" placeholder="e.g. Thabo Mokoena" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 15px;">
+                <label style="color: #1c2841; font-weight: 700;">Phone Number *</label>
+                <input type="text" id="cust-phone" placeholder="e.g. 071 234 5678" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 25px;">
+                <label style="color: #1c2841; font-weight: 700;">Email Address *</label>
+                <input type="email" id="cust-email" placeholder="e.g. thabo@example.com" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+            </div>
+
+            <div class="form-actions" style="display: flex; gap: 10px;">
+                <button type="submit" class="btn-primary" style="background: #d96c06; flex: 1;">Save Customer</button>
+                <button type="button" id="cancel-modal-btn" class="btn-secondary" style="flex: 1; border: 1px solid #1c2841; color: #1c2841;">Cancel</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+<script type="module" src="../Javascript/app.js"></script>
+</body>
+</html>

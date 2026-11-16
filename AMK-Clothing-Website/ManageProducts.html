@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMK Clothing - Manage Storefront Products</title>
+  <link rel="stylesheet" href="../Styling/StyleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #fcf9f2;">
+  <div class="dashboard-wrapper">
+   
+    <ul style="background-color: #1c2841; padding-top: 20px;">
+      <li class="sidebar" style="border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+        <div class="icon-box" style="background: linear-gradient(135deg, #1c2841 0%, #d96c06 100%); border-radius: 8px; padding: 10px;">
+          <h2 style="color: white; font-weight: 900; letter-spacing: 2px; margin: 0; font-size: 1.2rem;">AMK</h2>
+        </div>
+        <div class="AMK-text" style="margin-left: 10px;">
+          <span class="AMK-title" style="color: #fcd34d; font-weight: bold; font-size: 1.1rem;">ADMIN</span>
+          <span class="AMK-subtitle" style="color: #a8dadc; font-size: 0.8rem;">Fashion Design System</span>
+        </div>
+      </li>
+     
+      <li><a href="Homepage.html" style="color: #fcf9f2;">Dashboard</a></li>
+      
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Store Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="ManageProducts.html" style="color: #fcf9f2;">Manage Products</a>
+        </div>
+      </li>
+      
+      <li><a href="StaffManagement.html" style="color: #fcf9f2">Staff Management</a></li>
+      
+      <li><a href="CustomerManagement.html" style="color: #fcf9f2;">Customer Management</a></li>
+     
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Order Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="CreateOrder.html" style="color: #fcf9f2;">Create Order</a>
+          <a href="UpdateOrder.html" style="color: #fcf9f2;">Update Status</a>
+          <a href="RecordMeasurements.html" style="color: #fcf9f2;">Record Measurements</a>
+        </div>
+      </li>
+     
+      <li><a href="AdminMessages.html" style="color: #fcf9f2;">Client Chats</a></li>
+      
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Payment Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="ProcessPayment.html" style="color: #fcf9f2;">Process Payment</a>
+          <a href="Invoices.html" style="color: #fcf9f2;">Invoices</a>
+        </div>
+      </li>
+     
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Inventory Management</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="AddItems.html" style="color: #fcf9f2;">Add Item</a>
+          <a href="UpdateStock.html" style="color: #fcf9f2;">Update Stock</a>
+          <a href="LowStock.html" style="color: #fcf9f2;">Low Stock Alerts</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn" style="color: #fcf9f2;">Reports</a>
+        <div class="dropdown-content" style="background-color: #0f172a;">
+          <a href="SalesReport.html" style="color: #fcf9f2;">Sales</a>
+          <a href="InventoryReport.html" style="color: #fcf9f2;">Inventory</a>
+          <a href="CustomerOrderReport.html" style="color: #fcf9f2;">Customer Orders</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="main-content">
+     
+      <header class="top-header" style="background-color: #ffffff; border-bottom: 1px solid #eaeaea;">
+        <div class="header-left">
+          <h2 style="color: #1c2841; font-weight: 800;">Manage Store Products</h2>
+          <p style="color: #777;">Control the catalog displayed on the customer-facing website.</p>
+        </div>
+       
+        <div class="header-right">
+          <div class="profile-info">
+            <i class="far fa-user" style="font-size: 1.5rem; color: #d96c06;"></i>
+            <div class="profile-text">
+              <span class="profile-name" id="header-profile-name" style="color: #1c2841; font-weight: 700;">Fashion Designer</span>
+              <span class="profile-role" id="header-profile-role" style="color: #d96c06;">Administrator</span>
+            </div>
+          </div>
+          <button class="logout-btn" style="background-color: #fcd34d; color: #1c2841; font-weight: bold;">Logout</button>
+        </div>
+      </header>
+
+      <main class="dashboard-body">
+        <div class="page-header-text">
+          <h2 style="color: #1c2841;">Live Catalog Management</h2>
+          <p id="live-product-count" style="color: #d96c06; font-weight: bold;">Loading products...</p>
+        </div>
+
+        <div class="table-container" style="background: white; border-top: 4px solid #1c2841;">
+          <div class="toolbar" style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <input type="text" class="search-bar" id="search-product-input" placeholder="Search products by name or category..." style="flex: 1; padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px;">
+            <button class="btn-primary" id="open-add-product-modal-btn" style="background: #1c2841; color: #fcd34d; border: none; border-radius: 8px; padding: 0 20px; font-weight: bold; cursor: pointer;"><i class="fas fa-tshirt" style="margin-right: 8px;"></i> Upload New Product</button>
+          </div>
+          
+          <table class="data-table">
+            <thead>
+              <tr style="border-bottom: 2px solid #eaeaea; color: #1c2841;">
+                <th>IMAGE</th>
+                <th>PRODUCT NAME</th>
+                <th>CATEGORY</th>
+                <th>PRICE (ZAR)</th>
+                <th>STATUS</th>
+                <th>ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="products-table-body">
+                <!-- Data loaded via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Product Modal -->
+  <div id="product-modal" class="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center;">
+    <div class="modal-card" style="background: white; padding: 30px; border-radius: 12px; width: 600px; max-width: 95%; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-top: 4px solid #1c2841; max-height: 90vh; overflow-y: auto;">
+        <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 id="product-modal-title" style="color: #1c2841; margin: 0; font-size: 1.3rem;"><i class="fas fa-upload" style="color: #d96c06; margin-right: 10px;"></i>Upload New Product</h3>
+            <button id="close-product-modal-btn" style="font-size: 1.8rem; border: none; background: none; cursor: pointer; color: #1c2841;">×</button>
+        </div>
+        
+        <form id="manage-product-form">
+            <input type="hidden" id="edit-product-id" value="">
+            
+            <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
+                <div id="image-preview-container" style="width: 150px; height: 180px; background: #f4f7f6; border: 2px dashed #ccc; border-radius: 8px; display: flex; justify-content: center; align-items: center; overflow: hidden; margin-bottom: 10px;">
+                    <span style="color: #aaa; font-size: 0.8rem; text-align: center; padding: 10px;">No Image Selected</span>
+                    <img id="product-image-preview" src="" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <label style="background: #1c2841; color: white; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: bold;">
+                    <i class="fas fa-camera"></i> Choose Product Image
+                    <input type="file" id="product-image-input" accept="image/*" style="display: none;">
+                </label>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 15px;">
+                <label style="color: #1c2841; font-weight: 700; font-size: 13px;">Product Name *</label>
+                <input type="text" id="prod-name" placeholder="e.g. Elegant Summer Dress" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div class="input-group" style="min-width: 0;">
+                    <label style="color: #1c2841; font-weight: 700; font-size: 13px;">Category *</label>
+                    <select id="prod-category" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+                        <option value="" disabled selected>Select category...</option>
+                        <option value="Women">Women</option>
+                        <option value="Men">Men</option>
+                        <option value="Kids">Kids</option>
+                        <option value="Curve">Curve (Extended Sizes)</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="input-group" style="min-width: 0;">
+                    <label style="color: #1c2841; font-weight: 700; font-size: 13px;">Price (ZAR) *</label>
+                    <input type="number" step="0.01" id="prod-price" placeholder="e.g. 850.00" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+                <div class="input-group" style="min-width: 0;">
+                    <label style="color: #1c2841; font-weight: 700; font-size: 13px;">Available Sizes</label>
+                    <input type="text" id="prod-sizes" placeholder="e.g. S, M, L" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+                </div>
+                <div class="input-group" style="min-width: 0;">
+                    <label style="color: #1c2841; font-weight: 700; font-size: 13px;">Product Status *</label>
+                    <select id="prod-status" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px;" required>
+                        <option value="Live">Live on Site</option>
+                        <option value="Sold Out">Sold Out</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions" style="display: flex; gap: 10px;">
+                <button type="submit" class="btn-primary" style="background: #d96c06; color: white; flex: 1; padding: 12px; border-radius: 6px; border: none; font-weight: bold; font-size: 1rem; cursor: pointer;">Save Product</button>
+                <button type="button" id="cancel-product-modal-btn" style="flex: 1; padding: 12px; border: 1px solid #1c2841; color: #1c2841; background: transparent; border-radius: 6px; font-weight: bold; cursor: pointer;">Cancel</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+<script type="module" src="../Javascript/app.js"></script>
+<script>
+    document.addEventListener('click', function(e) {
+        const prodModal = document.getElementById('product-modal');
+        
+        if (e.target.closest('#open-add-product-modal-btn')) {
+            document.getElementById('manage-product-form').reset();
+            document.getElementById('edit-product-id').value = '';
+            document.getElementById('product-modal-title').innerHTML = '<i class="fas fa-upload" style="color: #d96c06; margin-right: 10px;"></i>Upload New Product';
+            
+            const imagePreview = document.getElementById('product-image-preview');
+            imagePreview.style.display = 'none';
+            imagePreview.src = "";
+            imagePreview.previousElementSibling.style.display = 'block';
+            
+            prodModal.style.display = 'flex';
+        }
+        
+        const editBtn = e.target.closest('.edit-product-btn');
+        if (editBtn) {
+            document.getElementById('edit-product-id').value = editBtn.getAttribute('data-id');
+            document.getElementById('prod-name').value = editBtn.getAttribute('data-name');
+            document.getElementById('prod-category').value = editBtn.getAttribute('data-category');
+            document.getElementById('prod-price').value = editBtn.getAttribute('data-price');
+            document.getElementById('prod-sizes').value = editBtn.getAttribute('data-sizes');
+            document.getElementById('prod-status').value = editBtn.getAttribute('data-status');
+            
+            const imgUrl = editBtn.getAttribute('data-image');
+            const imagePreview = document.getElementById('product-image-preview');
+            if (imgUrl && imgUrl !== 'null' && imgUrl !== '') {
+                imagePreview.src = imgUrl;
+                imagePreview.style.display = 'block';
+                imagePreview.previousElementSibling.style.display = 'none';
+            } else {
+                imagePreview.style.display = 'none';
+                imagePreview.src = "";
+                imagePreview.previousElementSibling.style.display = 'block';
+            }
+            
+            document.getElementById('product-modal-title').innerHTML = '<i class="fas fa-pen" style="color: #d96c06; margin-right: 10px;"></i>Edit Product';
+            prodModal.style.display = 'flex';
+        }
+
+        if (e.target.closest('#close-product-modal-btn') || e.target.closest('#cancel-product-modal-btn')) {
+            prodModal.style.display = 'none';
+        }
+    });
+
+    const imageInput = document.getElementById('product-image-input');
+    const imagePreview = document.getElementById('product-image-preview');
+    if(imageInput && imagePreview) {
+        const placeholderText = imagePreview.previousElementSibling;
+        imageInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                    placeholderText.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+</script>
+</body>
+</html>

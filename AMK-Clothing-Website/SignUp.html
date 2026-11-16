@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMK Clothing - Staff Sign Up</title>
+  <link rel="stylesheet" href="../Styling/StyleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container" style="width: 550px; max-width: 95%;">
+    <div class="auth-title">AMK Admin Portal</div>
+    <div class="auth-subtitle">Staff & Designer Registration</div>
+    
+    <form id="signup-form">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 13px; font-weight: bold; color: #444; text-align: left;">First Name *</label>
+          <input type="text" id="signup-name" placeholder="Name" pattern="[A-Za-z\s\-]+" title="Only letters are allowed" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px;" required>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 13px; font-weight: bold; color: #444; text-align: left;">Surname *</label>
+          <input type="text" id="signup-surname" placeholder="Surname" pattern="[A-Za-z\s\-]+" title="Only letters are allowed" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px;" required>
+        </div>
+      </div>
+
+      <div class="input-group" style="margin-bottom: 15px; text-align: left;">
+        <label>Email Address *</label>
+        <input type="email" id="signup-email" placeholder="Email Address" pattern="[a-zA-Z0-9._%+\-]{3,}@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Email must have at least 3 characters before the @ symbol and a valid domain" required>
+      </div>
+
+      <div class="input-group" style="margin-bottom: 15px; text-align: left;">
+        <label>Requested Role *</label>
+        <select id="signup-role" required>
+          <option value="" disabled selected>Select a role...</option>
+          <option value="Staff">Staff</option>
+          <option value="Designer">Designer</option>
+        </select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 13px; font-weight: bold; color: #444; text-align: left;">Password *</label>
+            <div style="position: relative; width: 100%;">
+                <input type="password" id="signup-password" placeholder="Min 6 chars, 1 Upper, 1 Num" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, and one number." style="width: 100%; padding: 10px; padding-right: 35px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px;" required>
+                <i class="fas fa-eye toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 13px; font-weight: bold; color: #444; text-align: left;">Confirm *</label>
+            <div style="position: relative; width: 100%;">
+                <input type="password" id="signup-confirm-password" placeholder="Confirm password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}" style="width: 100%; padding: 10px; padding-right: 35px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px;" required>
+                <i class="fas fa-eye toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+            </div>
+          </div>
+      </div>
+
+      <button type="submit" class="btn-auth" style="margin-top: 15px;">Register Account</button>
+    </form>
+
+    <div class="auth-footer" style="margin-top: 20px;">
+      Already have a staff account? <a href="SignIn.html">Sign In here</a>
+    </div>
+  </div>
+
+  <script type="module" src="../Javascript/app.js"></script>
+  
+  <script>
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('toggle-password')) {
+        const passwordInput = e.target.previousElementSibling;
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          e.target.classList.remove('fa-eye');
+          e.target.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          e.target.classList.remove('fa-eye-slash');
+          e.target.classList.add('fa-eye');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

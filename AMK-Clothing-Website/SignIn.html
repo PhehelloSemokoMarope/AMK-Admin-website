@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMK Clothing - Staff Sign In</title>
+  <link rel="stylesheet" href="../Styling/StyleSheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <div class="auth-title">AMK Admin Portal</div>
+    <div class="auth-subtitle">Secure Staff Access</div>
+    
+    <form id="login-form">
+      <div class="input-group">
+        <label>Email Address *</label>
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password *</label>
+        <div style="position: relative; width: 100%;">
+            <input type="password" id="password" placeholder="Enter your password" minlength="6" style="width: 100%; padding-right: 35px; box-sizing: border-box;" required>
+            <i class="fas fa-eye toggle-password" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #888;"></i>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-auth">Sign In</button>
+    </form>
+
+    <div style="margin: 25px 0; text-align: center; color: #aaa; font-size: 0.85rem; position: relative;">
+        <hr style="border: none; border-top: 1px solid #eee; position: absolute; width: 100%; top: 50%; left: 0; z-index: 1;">
+        <span style="background: white; padding: 0 10px; position: relative; z-index: 2;">OR</span>
+    </div>
+
+    <a href="SignUp.html" class="btn-secondary" style="display: block; text-decoration: none; text-align: center; width: 100%; box-sizing: border-box; margin-bottom: 20px;">Create Staff Account</a>
+
+  </div>
+
+  <script type="module" src="../Javascript/app.js"></script>
+  
+  <script>
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('toggle-password')) {
+        const passwordInput = e.target.previousElementSibling;
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          e.target.classList.remove('fa-eye');
+          e.target.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          e.target.classList.remove('fa-eye-slash');
+          e.target.classList.add('fa-eye');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
